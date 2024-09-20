@@ -1,5 +1,5 @@
-# Unsupervised Light Field Depth Estimation via Multi- View Feature Matching with Occlusion Prediction
-The source codes of the paper [**Unsupervised Light Field Depth Estimation via Multi- View Feature Matching with Occlusion Prediction**](https://ieeexplore.ieee.org/document/10223285) published on *IEEE Transactions on Circuits and Systems for Video Technology*.
+# Unsupervised Light Field Depth Estimation via Multi-View Feature Matching with Occlusion Prediction
+The source codes of the paper [**Unsupervised Light Field Depth Estimation via Multi-View Feature Matching with Occlusion Prediction**](https://ieeexplore.ieee.org/document/10223285) published on *IEEE Transactions on Circuits and Systems for Video Technology*.
 
 ## Requirements
 
