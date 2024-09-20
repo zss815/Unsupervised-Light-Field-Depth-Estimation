@@ -18,7 +18,7 @@ If you find this work is helpful to you, please cite the following paper:
 @article{Zhang2024,
 author={Shansi Zhang, Nan Meng and Edmund Y. Lam},
 journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
-title={Unsupervised Light Field Depth Estimation via Multi- View Feature Matching with Occlusion Prediction}, 
+title={Unsupervised Light Field Depth Estimation via Multi-View Feature Matching with Occlusion Prediction}, 
 volume={34},
 number={4},
 pages={2261-2273},
