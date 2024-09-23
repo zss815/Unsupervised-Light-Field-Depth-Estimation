@@ -3,7 +3,6 @@ from torch import nn
 from utils.losses import SSIM, Smooth_loss
 
 
-    
 class UnDepthOccLoss(nn.Module):
     def __init__(self):
         super(UnDepthOccLoss,self).__init__()
