@@ -153,6 +153,7 @@ class Cost_filter(nn.Module):
         return out
 
 
+#Regression of stage 1
 class Regression_s1(nn.Module):
     def __init__(self,in_channels,disp_sample):
         super(Regression_s1,self).__init__()
@@ -169,8 +170,9 @@ class Regression_s1(nn.Module):
         disp = torch.sum(prob*disp_sample.data, dim=1, keepdim=True)  #[B,1,H,W]
         
         return disp
- 
-    
+
+
+#Regression of stage 2   
 class Regression_s2(nn.Module):
     def __init__(self,in_channels,res_sample):
         super(Regression_s2,self).__init__()
