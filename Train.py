@@ -13,16 +13,13 @@ from Loss import UnDepthOccLoss
 from utils.tools import Warp
 
 
-def adjust_learning_rate(optimizer,lr_init,epoch,lr_step):
-    lr = lr_init* (0.8 ** (epoch // lr_step))
-    if lr>=1e-4:
-        for param_group in optimizer.param_groups:
-            param_group['lr'] = lr
-    else:
-        for param_group in optimizer.param_groups:
-            param_group['lr'] = 1e-4
-        
-        
+def adjust_learning_rate(optimizer):
+    lr=optimizer.param_groups[0]['lr']
+    lr=lr*0.9
+    if lr>1e-4:
+        optimizer.param_groups[0]['lr']=lr
+
+
 def train(args):
     step=0
     lr_step=50
@@ -68,8 +65,8 @@ def train(args):
     for epoch in range(args.max_epoch):
         disp_model.train()
         occ_model.train()
-        if epoch % lr_step==0:
-            adjust_learning_rate(optimizer,args.lr_init,epoch,lr_step)
+        if epoch % lr_step==0 and epoch!=0:
+            adjust_learning_rate(optimizer)
         
         for idx,inp in enumerate(train_loader):
             inp=Variable(inp)
@@ -107,7 +104,6 @@ def train(args):
         disp_model.eval()
         with torch.no_grad():
             mse_list=[]
-            
             for inp,disp_gt in val_loader:
                 if is_cuda:
                     inp,disp_gt=inp.cuda(),disp_gt.cuda()
@@ -147,7 +143,6 @@ def train(args):
 
 
 if __name__=='__main__':  
-    
     parser = argparse.ArgumentParser(description='LF disparity estimation')
     parser.add_argument('--train_root', default='', type=str)
     parser.add_argument('--val_root', default='', type=str)
