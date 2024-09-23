@@ -52,7 +52,6 @@ def DispMEFusion(disps,sais,q):
     return disp_fusion
 
 
-
 #Weighed fusion
 def DispWeightFusion(disps,sais,q,partial=True):
     #disps:[4,h,w], sais:[81,3,h,w]
