@@ -1,5 +1,6 @@
 import torch
-
+import torch.nn.functional as F
+from torch.autograd import Variable
 
 #Warp according to disparity
 def Warp(img_source,disp,x_dist,y_dist,interpolation='bilinear'):
