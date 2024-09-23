@@ -75,7 +75,6 @@ class LFDenseTrainData(Dataset):
         return len(self.img_path)
     
     
-
 class LFDenseValData(Dataset):
     def __init__(self,data_root):
         super(LFDenseValData,self).__init__()
