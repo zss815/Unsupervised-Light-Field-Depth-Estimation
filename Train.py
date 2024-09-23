@@ -67,7 +67,7 @@ def train(args):
         occ_model.train()
         if epoch % lr_step==0 and epoch!=0:
             adjust_learning_rate(optimizer)
-        
+            
         for idx,inp in enumerate(train_loader):
             inp=Variable(inp)
             if is_cuda:
