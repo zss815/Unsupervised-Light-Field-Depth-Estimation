@@ -116,6 +116,7 @@ class MS_SSIM(nn.Module):
     def forward(self, img1, img2):
         return ms_ssim(img1, img2, window_size=self.window_size, size_average=self.size_average, normalize=True)
 
+#Total variation loss
 class TVLoss(nn.Module):
     def __init__(self, weight=1):
         super(TVLoss, self).__init__()
@@ -134,14 +135,9 @@ class TVLoss(nn.Module):
     @staticmethod
     def tensor_size(t):
         return t.size()[1] * t.size()[2] * t.size()[3]
-
-
-def Gradient(img):
-    grad_x = torch.mean(img[:, :, :, :-1] - img[:, :, :, 1:], 1, keepdim=True)
-    grad_y = torch.mean(img[:, :, :-1, :] - img[:, :, 1:, :], 1, keepdim=True)
-    return grad_x,grad_y
+        
     
-   
+#Structure-aware smoothness loss   
 def Smooth_loss(I,img_ref,gamma=100):
     grad_x = torch.abs(I[:, :, :, :-1] - I[:, :, :, 1:])
     grad_y = torch.abs(I[:, :, :-1, :] - I[:, :, 1:, :])
