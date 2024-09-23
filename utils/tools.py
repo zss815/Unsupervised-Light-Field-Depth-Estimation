@@ -1,5 +1,5 @@
-import numpy as np
-import cv2
+import torch
+
 
 #Warp according to disparity
 def Warp(img_source,disp,x_dist,y_dist,interpolation='bilinear'):
